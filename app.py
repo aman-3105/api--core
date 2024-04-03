@@ -4,7 +4,7 @@ from redis import Redis
 app = Flask(__name__)
 redis = Redis(host='redis', port=6379)
 
-@app.route('/')
+@app.route('/check')
 def hello():
     redis.incr('hits')
     counter = str(redis.get('hits'),'utf-8')
